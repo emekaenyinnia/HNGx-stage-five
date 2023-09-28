@@ -19,7 +19,7 @@ class MediaStorageController extends Controller
             return response()->json([
                 'message' => "Media uploaded successfully.",
                 'url' => config('app.url').'/api/'.$this->storeMedia($request),
-            ], 200);
+            ], 201);
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage(),], 503);
         }
