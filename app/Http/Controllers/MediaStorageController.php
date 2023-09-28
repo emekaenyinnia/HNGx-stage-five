@@ -18,7 +18,7 @@ class MediaStorageController extends Controller
             }
             return response()->json([
                 'message' => "Media uploaded successfully.",
-                'url' => config('app.url').'/api/'.$this->storeMedia($request),
+                'url' => config('app.url') . '/api/' . $this->storeMedia($request),
             ], 201);
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage(),], 503);
@@ -43,7 +43,7 @@ class MediaStorageController extends Controller
     public function storeMedia($request)
     {
         $file = $request->file('media');
-        $filename = 'screen_record_'.random_int(1000000, 9999999);
+        $filename = 'screen_record_' . random_int(1000000, 9999999);
         $file->storeAs('public/mediaStorage', $filename);
         return $filename;
     }
