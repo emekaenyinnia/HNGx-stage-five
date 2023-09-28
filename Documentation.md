@@ -6,7 +6,7 @@
       - media (video required) - image src
     ```json
       {
-        "media": top_falls.3gp,
+        "media": "https://www.videezy.com/nature/4112-top-falls-1",
       }
     ```
    - **Response :**
