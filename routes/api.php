@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\MediaStorageController;
+use App\Http\Controllers\RecordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/upload', [MediaStorageController::class, 'upload']);
-Route::get('/{filename}', [MediaStorageController::class, 'downloadMedia' ]);
+Route::post('/upload', [RecordController::class, 'uploadRecord']);
+Route::get('/{name}', [RecordController::class, 'getRecord' ]);
+Route::get('/records', [RecordController::class, 'getAllRecord']);
