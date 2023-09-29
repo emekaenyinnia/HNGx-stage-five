@@ -14,7 +14,7 @@ class Media
     {
         $file = $request->file('record');
         $extension = $file->getClientOriginalExtension();
-        $filename = 'record_' . random_int(0000, 9999). $file->getClientOriginalName() . $extension;
+        $filename = 'record_' . random_int(000000, 999999).'_'. $file->getClientOriginalName();
         $file->storeAs('public/records', $filename);
         $fileSize = $file->getSize();
 
@@ -33,7 +33,7 @@ class Media
         $file = $request->file('thumbnail');
         if (!empty($file)) {
             $extension = $file->getClientOriginalExtension();
-            $filename = 'thumbnail_' . random_int(0000, 9999) . $file->getClientOriginalName() . $extension;
+            $filename = 'thumbnail_' . random_int(000000, 999999) . '_' . $file->getClientOriginalName();
             $file->storeAs('public/thumbnails', $filename);
             $thumbnail = $filename;
         }
