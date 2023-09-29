@@ -15,5 +15,8 @@ class Record extends Model
         'name',
         'url',
         'thumbnail',
+        'size',
+        'duration',
+        'extension'
     ];
 }
