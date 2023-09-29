@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+         $schedule->command('app:keep-server-active')->everyThirtyMinutes()->appendOutputTo('scheduler.log');
     }
 
     /**

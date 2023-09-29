@@ -1,33 +1,49 @@
-# Chrome Extension Api
 
-1. Upload Media : `/api/upload`
-      - **Method:** POST
-    - **Request Body:**
-      - media (video required) - image src
-    ```json
-      {
-        "media": "https://www.videezy.com/nature/4112-top-falls-1",
-      }
-    ```
-   - **Response :**
+### API Endpoints
 
-   ```json
-       {
-         "message": "Media uploaded successfully.",
-         "url": "api/screen_record_894728729"
-       }
-   ```
+### Request and Response Formats
+The API uses JSON for both requests and responses. The following table describes the JSON format for the requests and responses:
 
-## Get Media
+<table>
+    <thead>
+        <th> Requests </th>
+        <th> Response </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>POST /api</td>
+            <td>201 Create with the newly uploaded screen record in the response body</td>
+        </tr>
+        <tr>
+            <td>GET /api/{name}</td>
+            <td>200 OK retuns the record with the specified name in the response body.</td>
+        </tr>
+           <tr>
+            <td>GET /api</td>
+            <td>200 OK with an array of records in the response body.</td>
+        </tr>
+            <tr>
+            <td>DELETE /api/{id}</td>
+            <td>204 No Content</td>
+        </tr>
+    </tbody>
+</table>
 
-2. Get Media: `/api/:filename`
-   - **Method:** GET
-   - **Parameters**:
-     - `filename` (path parameter, string) - The filename of the video to Get eg screen_record_894728729 .
-   - **Request Body: None**
-   -  **Response Body: None**
+### Sample Usage
 
+## Adding a screen record  (201 Created)
 
+<img src="documentation/create.png" alt="Create new record" />
 
-   ```
+## Fetch a screen record (200 OK)
+
+<img src="documentation/get.png" alt="fetch a record" />
+
+## Remove a record (204 No Content)
+
+<img src="documentation/delete.png" alt="remove a record" />
+
+## Fetch users (200 OK)
+
+<img src="documentation/viewAll.png" alt="fetch all records" />
 
