@@ -14,7 +14,7 @@ class Media
     {
         $file = $request->file('record');
         $extension = $file->getClientOriginalExtension();
-        $filename = 'record_' . random_int(000000, 999999).'_'. $file->getClientOriginalName();
+        $filename = 'record_' . random_int(000000, 999999) . '_' . $file->getClientOriginalName();
         $file->storeAs('public/records', $filename);
         $fileSize = $file->getSize();
 
@@ -54,35 +54,35 @@ class Media
     {
         $path = Storage::disk('public')->path("thumbnails/{$record->name}");
         if (file_exists($path)) {
-          return  Storage::disk('public')->delete("thumbnails/{$record->name}");
+            return  Storage::disk('public')->delete("thumbnails/{$record->name}");
         }
     }
 
-    protected static function formatVideoDuration ($video_path) 
+    protected static function formatVideoDuration($video_path)
     {
         $getID3 = new getID3;
         $file = $getID3->analyze($video_path);
         $duration = date('H:i:s.v', $file['playtime_seconds']);
         return $duration;
     }
- protected static function formatSizeUnits($bytes)
-{
-    if ($bytes >= 1073741824) {
-        $bytes = number_format($bytes / 1073741824, 2) . ' GB';
-    } elseif ($bytes >= 1048576) {
-        $bytes = number_format($bytes / 1048576, 2) . ' MB';
-    } elseif ($bytes >= 1024) {
-        $bytes = number_format($bytes / 1024, 2) . ' KB';
-    } elseif ($bytes > 1) {
-        $bytes = $bytes . ' bytes';
-    } elseif ($bytes == 1) {
-        $bytes = $bytes . ' byte';
-    } else {
-        $bytes = '0 bytes';
-    }
+    protected static function formatSizeUnits($bytes)
+    {
+        if ($bytes >= 1073741824) {
+            $bytes = number_format($bytes / 1073741824, 2) . ' GB';
+        } elseif ($bytes >= 1048576) {
+            $bytes = number_format($bytes / 1048576, 2) . ' MB';
+        } elseif ($bytes >= 1024) {
+            $bytes = number_format($bytes / 1024, 2) . ' KB';
+        } elseif ($bytes > 1) {
+            $bytes = $bytes . ' bytes';
+        } elseif ($bytes == 1) {
+            $bytes = $bytes . ' byte';
+        } else {
+            $bytes = '0 bytes';
+        }
 
-    return $bytes;
-}
+        return $bytes;
+    }
 
     // Add more helper methods as needed
 }
