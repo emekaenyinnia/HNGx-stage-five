@@ -44,15 +44,15 @@ class RecordController extends Controller
     }
 
 
-    public function getRecord(Request $request)
+    public function getRecord($name)
     {
         try {
           
-            $record = Record::where('name', $request->name)->first();
+            $record = Record::where('name', $name)->first();
             if (!$record) {
                 return response()->json(['message' => 'record not found.'], 404);
             }
-            $path = Storage::disk('public')->path("records/{$request->name}");
+            $path = Storage::disk('public')->path("records/{$name}");
 
             if (file_exists($path)) {
                 return response()->file($path);
