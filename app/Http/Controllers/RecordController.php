@@ -52,14 +52,13 @@ class RecordController extends Controller
             if (!$record) {
                 return response()->json(['message' => 'record not found.'], 404);
             }
-            $path = Storage::disk('public')->path("record/{$request->name}");
-            // return response()->json([
-            //     'message' => "record retrieved successfully.",
-            // ], 200);
+            $path = Storage::disk('public')->path("records/{$request->name}");
+
             if (file_exists($path)) {
                 return response()->file($path);
+            }else{
+                return response()->json(['message' => 'cant retrieve record.'], 404);
             }
-            return response()->json(['message' => 'cant retrieve record.'], 404);
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage(),], 503);
         }
