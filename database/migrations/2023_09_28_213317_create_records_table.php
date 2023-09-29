@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('url');
             $table->string('thumbnail')->nullable();
+            $table->string('size');
+            $table->string('duration');
+            $table->string('extension');
             $table->timestamps();
         });
     }

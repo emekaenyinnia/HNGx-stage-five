@@ -6,7 +6,7 @@ use App\Helpers\Media;
 use App\Models\Record;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 
 class RecordController extends Controller
 {
@@ -14,23 +14,29 @@ class RecordController extends Controller
     {
         try {
             $validate = Validator::make($request->all(), [
-                'media' => 'required|file|mimetypes:video/*|max:20480',
+                'record' => 'required|file|mimetypes:video/*|max:20480',
                 'thumbnail' => 'file|mimetypes:image/*|max:20480'
             ]);
             if ($validate->fails()) {
              return response()->json(['message' => $validate->errors()->all(),], 404);
             }
-            $name = Media::store($request);
+            DB::beginTransaction();
+            $data = Media::store($request);
             $thumbnail = Media::storeThumbnail($request);
             $records = Record::create([
-                'name' => $name,
-                'url' => config('app.url') . '/api/' . $name,
+                'name' => $data['filename'],
+                'url' => config('app.url') . '/api/' . $data['filename'],
+                'size' =>  $data['size'],
+                'extension' =>  $data['extension'],
+                'duration' => $data['duration'],
                 'thumbnail' => $thumbnail
             ]);
+            DB::commit();
             return response()->json([
-                'message' => "Record uploaded successfully.",
+                'message' => "record uploaded successfully.",
                 'data' => $records
             ], 201);
+          
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage()], 503);
         }
@@ -40,15 +46,15 @@ class RecordController extends Controller
     public function getRecord(Request $request)
     {
         try {
+          
             $record = Record::where('name', $request->name)->first();
             if (!$record) {
-                return response()->json(['message' => 'Media not found.'], 404);
+                return response()->json(['message' => 'record not found.'], 404);
             }
             return response()->json([
-                'message' => "Media uploaded successfully.",
-                'data' => $record
+                'message' => "record retrieved successfully.",
             ], 200);
-
+          
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage(),], 503);
         }
@@ -60,10 +66,32 @@ class RecordController extends Controller
         try {
             $records = Record::all();
             return response()->json([
-                'message' => "Records Retrieved successfully.",
+                'message' => "records retrieved successfully.",
                 'data' => $records
             ], 200);
 
+        } catch (\Throwable $th) {
+            return response()->json(['message' => $th->getMessage(),], 503);
+        }
+    }
+
+    public function deleteRecord(Request $request)
+    {
+        try {
+            $record = Record::where('name', $request->name)->first();
+            if (!$record) {
+                return response()->json(['message' => 'record not found.'], 404);
+            }
+            DB::beginTransaction();
+           $deteled = $record->delete();
+           if ($deteled) {
+               Media::deleteRecord($request);
+           }
+            DB::commit();
+            return response()->json([
+                'message' => "record delete successfully.",
+            ], 202);
+          
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage(),], 503);
         }
