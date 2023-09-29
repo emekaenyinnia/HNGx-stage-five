@@ -25,7 +25,7 @@ class RecordController extends Controller
             $thumbnail = Media::storeThumbnail($request);
             $records = Record::create([
                 'name' => $data['filename'],
-                'url' => config('app.url') . '/api/' . $data['filename'],
+                'url' => 'https://hngx-stage-five.onrender.com' . '/api/' . $data['filename'],
                 'size' =>  $data['size'],
                 'extension' =>  $data['extension'],
                 'duration' => $data['duration'],
