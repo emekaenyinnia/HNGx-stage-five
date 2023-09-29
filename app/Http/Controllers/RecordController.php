@@ -24,10 +24,10 @@ class RecordController extends Controller
             DB::beginTransaction();
             $data = Media::store($request);
             $thumbnail = Media::storeThumbnail($request);
-            $thumbnail_url = $thumbnail != null ? 'https://hngx-stage-five.onrender.com' . 'storage/thumbnails/' . $thumbnail: null;
+            $thumbnail_url = $thumbnail != null ? 'https://hngx-stage-five.onrender.com' . '/storage/thumbnails/' . $thumbnail: null;
             $records = Record::create([
                 'name' => $data['filename'],
-                'url' => 'https://hngx-stage-five.onrender.com' .'storage/records/' . $data['filename'],
+                'url' => 'https://hngx-stage-five.onrender.com' .'/storage/records/' . $data['filename'],
                 'size' =>  $data['size'],
                 'extension' =>  $data['extension'],
                 'duration' => $data['duration'],
