@@ -76,8 +76,16 @@ The API uses JSON for both requests and responses. The following table describes
             <td>201 Create with the newly uploaded screen record in the response body</td>
         </tr>
         <tr>
-            <td>GET /api/{filename}</td>
-            <td>200 OK retuns the video.</td>
+            <td>GET /api/{name}</td>
+            <td>200 OK retuns the record with the specified name in the response body.</td>
+        </tr>
+           <tr>
+            <td>GET /api</td>
+            <td>200 OK with an array of records in the response body.</td>
+        </tr>
+            <tr>
+            <td>DELETE /api/{id}</td>
+            <td>204 No Content</td>
         </tr>
     </tbody>
 </table>
@@ -86,11 +94,17 @@ The API uses JSON for both requests and responses. The following table describes
 
 ## Adding a screen record  (201 Created)
 
-<!-- <img src="documentation/create.png" alt="Create new user" /> -->
+<img src="documentation/create.png" alt="Create new record" />
 
 ## Fetch a screen record (200 OK)
 
-<!-- <img src="documentation/get.png" alt="fetch a user" /> -->
+<img src="documentation/get.png" alt="fetch a record" />
 
+## Remove a record (204 No Content)
 
+<img src="documentation/delete.png" alt="remove a record" />
+
+## Fetch users (200 OK)
+
+<img src="documentation/viewAll.png" alt="fetch all records" />
 

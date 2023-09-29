@@ -55,9 +55,9 @@ class RecordController extends Controller
             }
 
             return response()->json([
-                'message' => "record uploaded successfully.",
+                'message' => "record retrieved successfully.",
                 'data' =>  $record 
-            ], 201);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage(),], 503);
         }

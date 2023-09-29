@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/upload', [RecordController::class, 'uploadRecord']);
+Route::post('/', [RecordController::class, 'uploadRecord']);
 Route::get('/{name}', [RecordController::class, 'getRecord' ]);
-Route::get('/records/all', [RecordController::class, 'getAllRecord']);
-Route::delete('/record/{name}', [RecordController::class, 'deleteRecord']);
+Route::get('/', [RecordController::class, 'getAllRecord']);
+Route::delete('/{name}', [RecordController::class, 'deleteRecord']);
