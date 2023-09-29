@@ -92,6 +92,10 @@ The API uses JSON for both requests and responses. The following table describes
 
 ### Sample Usage
 
+4. Api URL:
+    ```bash
+    https://hngx-stage-five.onrender.com
+    ``` 
 ## Adding a screen record  (201 Created)
 
 <img src="documentation/images/create.png" alt="Create new record" />
@@ -104,7 +108,7 @@ The API uses JSON for both requests and responses. The following table describes
 
 <img src="documentation/images/delete.png" alt="remove a record" />
 
-## Fetch users (200 OK)
+## Fetch record (200 OK)
 
 <img src="documentation/images/viewAll.png" alt="fetch all records" />
 

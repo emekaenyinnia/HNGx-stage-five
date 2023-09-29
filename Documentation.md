@@ -31,7 +31,20 @@ The API uses JSON for both requests and responses. The following table describes
 
 ### Sample Usage
 
+4. Api URL:
+
+    ```bash
+    https://hngx-stage-five.onrender.com
+    ``` 
+    
 ## Adding a screen record  (201 Created)
+
+1. **create:** `https://hngx-stage-five.onrender.com/api`  ( **record ** )
+    - **Method:** POST
+    - **Request Body:**
+    - records ( mimetype: video required ) : the screen record key 
+     - thumbnail  ( mimetype: image nullable ) : The thumbnail should be an image and its nullable (means if you dont have any image leave the value to be empty)
+     
 
 <img src="documentation/images/create.png" alt="Create new record" />
 
@@ -43,7 +56,7 @@ The API uses JSON for both requests and responses. The following table describes
 
 <img src="documentation/images/delete.png" alt="remove a record" />
 
-## Fetch users (200 OK)
+## Fetch record (200 OK)
 
 <img src="documentation/images/viewAll.png" alt="fetch all records" />
 
