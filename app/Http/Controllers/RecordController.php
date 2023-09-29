@@ -24,13 +24,14 @@ class RecordController extends Controller
             DB::beginTransaction();
             $data = Media::store($request);
             $thumbnail = Media::storeThumbnail($request);
+            $thumbnail_url = $thumbnail != null ? 'https://hngx-stage-five.onrender.com' . '/api/' . 'storage/thumbnails/' . $thumbnail: null;
             $records = Record::create([
                 'name' => $data['filename'],
-                'url' => 'https://hngx-stage-five.onrender.com' . '/api/' . $data['filename'],
+                'url' => 'https://hngx-stage-five.onrender.com' . '/api/'.'storage/records/' . $data['filename'],
                 'size' =>  $data['size'],
                 'extension' =>  $data['extension'],
                 'duration' => $data['duration'],
-                'thumbnail' => $thumbnail
+                'thumbnail' =>  $thumbnail_url 
             ]);
             DB::commit();
             return response()->json([
@@ -52,14 +53,11 @@ class RecordController extends Controller
             if (!$record) {
                 return response()->json(['message' => 'record not found.'], 404);
             }
-            $path = storage_path('app/public/records'. $name);
-            // $path = Storage::disk('public')->path("records/{$name}");
 
-            if (file_exists($path)) {
-                return response()->file($path);
-            }else{
-                return response()->json(['message' => 'cant retrieve record.'], 404);
-            }
+            return response()->json([
+                'message' => "record uploaded successfully.",
+                'data' =>  $record 
+            ], 201);
         } catch (\Throwable $th) {
             return response()->json(['message' => $th->getMessage(),], 503);
         }
