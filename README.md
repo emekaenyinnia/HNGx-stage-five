@@ -94,17 +94,17 @@ The API uses JSON for both requests and responses. The following table describes
 
 ## Adding a screen record  (201 Created)
 
-<img src="documentation/create.png" alt="Create new record" />
+<img src="documentation/images/create.png" alt="Create new record" />
 
 ## Fetch a screen record (200 OK)
 
-<img src="documentation/get.png" alt="fetch a record" />
+<img src="documentation/images/get.png" alt="fetch a record" />
 
 ## Remove a record (204 No Content)
 
-<img src="documentation/delete.png" alt="remove a record" />
+<img src="documentation/images/delete.png" alt="remove a record" />
 
 ## Fetch users (200 OK)
 
-<img src="documentation/viewAll.png" alt="fetch all records" />
+<img src="documentation/images/viewAll.png" alt="fetch all records" />
 
