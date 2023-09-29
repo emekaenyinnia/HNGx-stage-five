@@ -52,8 +52,8 @@ class RecordController extends Controller
             if (!$record) {
                 return response()->json(['message' => 'record not found.'], 404);
             }
-            
-            $path = Storage::disk('public')->path("records/{$name}");
+            $path = storage_path('app/public/records'. $name);
+            // $path = Storage::disk('public')->path("records/{$name}");
 
             if (file_exists($path)) {
                 return response()->file($path);
