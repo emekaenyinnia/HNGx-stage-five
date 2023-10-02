@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('size');
             $table->string('duration');
             $table->string('extension');
+            $table->longText('transcribe_text');
             $table->timestamps();
         });
     }

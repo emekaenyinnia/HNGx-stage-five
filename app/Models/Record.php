@@ -17,6 +17,7 @@ class Record extends Model
         'thumbnail',
         'size',
         'duration',
-        'extension'
+        'extension',
+        'transcribe_text'
     ];
 }
