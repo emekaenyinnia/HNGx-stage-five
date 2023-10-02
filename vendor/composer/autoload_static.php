@@ -585,6 +585,7 @@ class ComposerStaticInitfde7bfb9e21a5d1f78a71a3496ca2cd6
         'Alchemy\\BinaryDriver\\ProcessRunner' => __DIR__ . '/..' . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunner.php',
         'Alchemy\\BinaryDriver\\ProcessRunnerAwareInterface' => __DIR__ . '/..' . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunnerAwareInterface.php',
         'Alchemy\\BinaryDriver\\ProcessRunnerInterface' => __DIR__ . '/..' . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunnerInterface.php',
+        'App\\Console\\Commands\\KeepServerActive' => __DIR__ . '/../..' . '/app/Console/Commands/KeepServerActive.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Helpers\\Media' => __DIR__ . '/../..' . '/app/Helpers/Media.php',

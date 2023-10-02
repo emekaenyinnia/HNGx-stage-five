@@ -59,6 +59,8 @@ return [
 
     'asset_url' => env('ASSET_URL'),
 
+    'whisper_api' => env('WHISPER_API'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

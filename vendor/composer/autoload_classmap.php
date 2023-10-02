@@ -28,6 +28,7 @@ return array(
     'Alchemy\\BinaryDriver\\ProcessRunner' => $vendorDir . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunner.php',
     'Alchemy\\BinaryDriver\\ProcessRunnerAwareInterface' => $vendorDir . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunnerAwareInterface.php',
     'Alchemy\\BinaryDriver\\ProcessRunnerInterface' => $vendorDir . '/php-ffmpeg/php-ffmpeg/src/Alchemy/BinaryDriver/ProcessRunnerInterface.php',
+    'App\\Console\\Commands\\KeepServerActive' => $baseDir . '/app/Console/Commands/KeepServerActive.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Helpers\\Media' => $baseDir . '/app/Helpers/Media.php',
